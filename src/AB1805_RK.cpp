@@ -208,6 +208,8 @@ bool AB1805::setPPMAdj(int16_t PPM_Adj) {
         return false;;
     }
 
+    //  _log.info("PPM_Adj= %d, Adj=%d | XTCAL=%u | CMDX=%u | OFFSETX=%i",PPM_Adj, Adj, XTCAL, CMDX, OFFSETX);
+
     //Determine the value of the entire register. The offset register is 7 bit 2's complement. 
     if (OFFSETX < 0) {
         CAL_XT_Value = ((~abs(OFFSETX))+1 & 0x7F) | CMDX << 7;
